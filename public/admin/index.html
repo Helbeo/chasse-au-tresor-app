@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Chasse au Trésor</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <main>
+        <h1>Interface d'Administration</h1>
+
+        <section id="parcours-list-section">
+            <h2>Parcours Existants</h2>
+            <div id="parcours-list-admin">
+                <p>Chargement...</p>
+            </div>
+        </section>
+
+        <section id="form-section">
+            <h2>Ajouter / Modifier un Parcours</h2>
+            <form id="parcours-form">
+                <input type="hidden" id="form-mode" value="add">
+                <input type="hidden" id="doc-id" value="">
+
+                <label for="parcoursId">ID du Parcours (ex: P004)</label>
+                <input type="text" id="parcoursId" required>
+
+                <label for="parcoursName">Nom du Parcours</label>
+                <input type="text" id="parcoursName" required>
+
+                <label for="city">Ville</label>
+                <input type="text" id="city" required>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="isFinal">
+                    <label for="isFinal">Est-ce un parcours final ?</label>
+                </div>
+                
+                <label for="locations">Lieux (au format JSON)</label>
+                <textarea id="locations" rows="15" placeholder="Collez ici le tableau JSON des lieux..."></textarea>
+                <p class="example">Exemple de format :<br><code>[{"name": "Lieu 1", "coords": [46.1, 5.2], ...}, {"name": "Lieu 2", ...}]</code></p>
+
+                <button type="submit">Enregistrer le Parcours</button>
+                <button type="button" id="cancel-edit" class="hidden">Annuler la modification</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

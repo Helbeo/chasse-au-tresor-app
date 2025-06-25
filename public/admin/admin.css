@@ -1,0 +1,12 @@
+body { font-family: sans-serif; line-height: 1.6; margin: 0; background-color: #f4f4f4; }
+main { max-width: 800px; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+h1, h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+input[type="text"], textarea { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box; }
+textarea { font-family: monospace; }
+button { padding: 10px 15px; border: none; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; }
+button:hover { background-color: #0056b3; }
+.parcours-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+.error { color: red; }
+.example { font-size: 0.8em; color: #555; }
+.checkbox-group { display: flex; align-items: center; margin-bottom: 10px; }
+.checkbox-group input { width: auto; margin-right: 10px; }
