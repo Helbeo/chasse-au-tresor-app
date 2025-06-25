@@ -10,3 +10,52 @@ button:hover { background-color: #0056b3; }
 .example { font-size: 0.8em; color: #555; }
 .checkbox-group { display: flex; align-items: center; margin-bottom: 10px; }
 .checkbox-group input { width: auto; margin-right: 10px; }
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+#add-location-btn {
+    background-color: #28a745;
+    margin-top: 10px;
+}
+#add-location-btn:hover {
+    background-color: #218838;
+}
+
+.location-form-group {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.location-form-group label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.location-form-group .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.location-form-group .form-header h4 {
+    margin: 0;
+}
+
+.remove-location-btn {
+    background-color: #dc3545;
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+.remove-location-btn:hover {
+    background-color: #c82333;
+}

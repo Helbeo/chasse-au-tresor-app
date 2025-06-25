@@ -37,9 +37,12 @@
                     <label for="isFinal">Est-ce un parcours final ?</label>
                 </div>
                 
-                <label for="locations">Lieux (au format JSON)</label>
-                <textarea id="locations" rows="15" placeholder="Collez ici le tableau JSON des lieux..."></textarea>
-                <p class="example">Exemple de format :<br><code>[{"name": "Lieu 1", "coords": [46.1, 5.2], ...}, {"name": "Lieu 2", ...}]</code></p>
+                <hr>
+				<h3>Lieux du Parcours</h3>
+				<div id="locations-builder">
+					</div>
+				<button type="button" id="add-location-btn">+ Ajouter un Lieu</button>
+				<hr>
 
                 <button type="submit">Enregistrer le Parcours</button>
                 <button type="button" id="cancel-edit" class="hidden">Annuler la modification</button>
