@@ -4,7 +4,7 @@ const INITIAL_ZOOM_LEVEL = 9;
 const COLLECTION_RADIUS_METERS = 99999999999999999999999999999999999;
 
 // NOUVEAU : Configuration et initialisation de Supabase
-const SUPABASE_URL = 'https://jlbeepzdvagdqyntpxcm.supabase.co; // Collez votre URL ici
+const SUPABASE_URL = 'https://jlbeepzdvagdqyntpxcm.supabase.co;'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsYmVlcHpkdmFnZHF5bnRweGNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4NTA2MzAsImV4cCI6MjA2NjQyNjYzMH0.sYc-CniJZ598MUkrxDjCm8AsdnxByiVpldYED3s93DY'; // Collez votre clé 'anon' 'public' ici
 
 // Initialise Supabase
