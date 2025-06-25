@@ -3,27 +3,13 @@ const AIN_COORDINATES = [46.15, 5.34];
 const INITIAL_ZOOM_LEVEL = 9;
 const COLLECTION_RADIUS_METERS = 99999999999999999999999999999999999;
 
-// Import the functions you need from the SDKs you need
+// NOUVEAU : Configuration et initialisation de Supabase
+const SUPABASE_URL = 'https://jlbeepzdvagdqyntpxcm.supabase.co; // Collez votre URL ici
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsYmVlcHpkdmFnZHF5bnRweGNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4NTA2MzAsImV4cCI6MjA2NjQyNjYzMH0.sYc-CniJZ598MUkrxDjCm8AsdnxByiVpldYED3s93DY'; // Collez votre clé 'anon' 'public' ici
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAkGXtz0zc5_Zw9P21pOR1047swcJNKumE",
-  authDomain: "chasse-au-tresor-admin.firebaseapp.com",
-  projectId: "chasse-au-tresor-admin",
-  storageBucket: "chasse-au-tresor-admin.firebasestorage.app",
-  messagingSenderId: "343115302706",
-  appId: "1:343115302706:web:5bb5b50c21fbcd6a79b92b",
-  measurementId: "G-W3R5N4R95F"
-
-};
-
-// Initialize Firebase
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
+// Initialise Supabase
+const { createClient } = supabase;
+const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- VARIABLES GLOBALES ---
 let map;
@@ -75,23 +61,26 @@ function initMap() {
 
 async function loadData() {
     try {
-        // On interroge la collection "parcours" dans Firestore
-        const snapshot = await db.collection("parcours").get();
-        
-        // On vide notre tableau au cas où
-        allParcoursData = [];
+        // On interroge la table "parcours" dans Supabase
+        // .select('*') signifie qu'on veut toutes les colonnes
+        const { data, error } = await _supabase.from('parcours').select('*');
 
-        // On remplit notre tableau avec les données de chaque document trouvé
-        snapshot.forEach((doc) => {
-            allParcoursData.push(doc.data());
-        });
+        // S'il y a une erreur, on l'affiche et on arrête
+        if (error) {
+            throw error;
+        }
 
-        console.log("Données chargées avec succès depuis Firestore !", allParcoursData);
+        // Si tout va bien, on met les données dans notre variable
+        allParcoursData = data;
+
+        console.log("Données chargées avec succès depuis Supabase !", allParcoursData);
 
     } catch (error) {
-        console.error("ERREUR : Impossible de charger les données depuis Firestore :", error);
+        // La console affichera ici le message d'erreur s'il y en a un
+        console.error("ERREUR : Impossible de charger les données depuis Supabase :", error.message);
     }
 }
+
 // --- AFFICHAGE ET LOGIQUE DES PARCOURS ---
 function displayParcoursList() {
     const listElement = document.getElementById('parcours-list');
