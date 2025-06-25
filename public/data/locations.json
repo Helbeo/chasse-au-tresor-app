@@ -1,0 +1,94 @@
+[
+  {
+    "parcoursId": "P001",
+    "parcoursName": "Les Clefs de Brou",
+    "city": "Bourg-en-Bresse",
+    "locations": [
+      {
+        "locationId": "L01",
+        "name": "Le Monastère Royal de Brou",
+        "coords": [46.1975, 5.2275],
+        "clue": "Près du tombeau du Duc, cherche le symbole qui ouvre les mers. C'est ta première clef.",
+        "item": { "id": "key_brou_1", "name": "Clef du Navigateur" }
+      },
+      {
+        "locationId": "L02",
+        "name": "L'Apothicairerie",
+        "coords": [46.2058, 5.2244],
+        "clue": "Là où les remèdes anciens reposent, une fiole contient plus qu'un simple breuvage... Elle révèle l'emplacement de la deuxième clef.",
+        "item": { "id": "key_brou_2", "name": "Clef de l'Alchimiste" }
+      },
+      {
+        "locationId": "L03",
+        "name": "La Porte des Jacobins",
+        "coords": [46.2039, 5.2219],
+        "clue": "Franchis l'ancienne porte de la ville. Sur la pierre la plus usée par le temps, est gravé le secret de la dernière clef.",
+        "item": { "id": "key_brou_3", "name": "Clef du Gardien" }
+      }
+    ]
+  },
+  {
+    "parcoursId": "P002",
+    "parcoursName": "L'Héritage des Halles",
+    "city": "Châtillon-sur-Chalaronne",
+    "locations": [
+      {
+        "locationId": "L04",
+        "name": "Les Halles Médiévales",
+        "coords": [46.1213, 4.9565],
+        "clue": "Sous le chêne de la charpente, le fantôme d'un marchand a caché sa fortune.",
+        "item": { "id": "key_chatillon_1", "name": "Clef du Marchand" }
+      },
+      {
+        "locationId": "L05",
+        "name": "Le Pont de la Chalaronne",
+        "coords": [46.1205, 4.9575],
+        "clue": "Là où l'eau murmure, cherchez la pierre gravée du poisson.",
+        "item": { "id": "key_chatillon_2", "name": "Clef du Pontonnier" }
+      }
+    ]
+  },
+    {
+    "parcoursId": "P003",
+    "parcoursName": "Le Secret du Chevalier",
+    "city": "Buellas",
+    "locations": [
+      {
+        "locationId": "L06",
+        "name": "L'Église Saint-Martin",
+        "coords": [46.209608938402795, 5.132394139738425],
+        "clue": "Au pied du clocher qui sonne les heures, le premier symbole est gravé dans la pierre la plus ancienne, là où l'ombre du coq ne passe jamais.",
+        "item": { "id": "key_buellas_1", "name": "Le Sceau de la Foi" }
+      },
+      {
+        "locationId": "L07",
+        "name": "École Primaire de Buellas",
+        "coords": [46.20891844703456, 5.14257580474593],
+        "clue": "Là où les futurs chevaliers apprennent à lire, le savoir est une arme. Dans la cour, cherche le plus vieil arbre. À ses racines, le savoir du passé est protégé.",
+        "item": { "id": "key_buellas_2_erudit", "name": "L'Insigne de l'Érudit" }
+      },
+      {
+        "locationId": "L08",
+        "name": "Le Lavoir de Buellas",
+        "coords": [46.210349598374805, 5.134792061240451],
+        "clue": "Là où les linges étaient battus et les secrets murmurés, l'eau de la source cache une pierre pas comme les autres. Elle porte la marque finale.",
+        "item": { "id": "key_buellas_3", "name": "La Pierre de la Source" }
+      }
+    ]
+  },
+  {
+    "parcoursId": "P_FINAL",
+    "parcoursName": "Le Trésor de l'Ain",
+    "city": "Territoire Secret",
+    "isFinal": true,
+    "locations": [
+      {
+        "locationId": "L_FINAL",
+        "name": "Le Coffre du Mont-July",
+        "coords": [46.1685, 5.3490],
+        "clue": "Là où la vue embrasse la plaine, votre longue quête prend fin. Le trésor est à vous !",
+        "item": { "id": "treasure_final", "name": "Trésor des Pirates de l'Ain" }
+      }
+    ]
+  }
+]
