@@ -3,6 +3,28 @@ const AIN_COORDINATES = [46.15, 5.34];
 const INITIAL_ZOOM_LEVEL = 9;
 const COLLECTION_RADIUS_METERS = 99999999999999999999999999999999999;
 
+// Import the functions you need from the SDKs you need
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAkGXtz0zc5_Zw9P21pOR1047swcJNKumE",
+  authDomain: "chasse-au-tresor-admin.firebaseapp.com",
+  projectId: "chasse-au-tresor-admin",
+  storageBucket: "chasse-au-tresor-admin.firebasestorage.app",
+  messagingSenderId: "343115302706",
+  appId: "1:343115302706:web:5bb5b50c21fbcd6a79b92b",
+  measurementId: "G-W3R5N4R95F"
+
+};
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
 // --- VARIABLES GLOBALES ---
 let map;
 let playerMarker;
@@ -46,8 +68,6 @@ function initMap() {
     map = L.map('map').setView(AIN_COORDINATES, INITIAL_ZOOM_LEVEL);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
     markersLayer.addTo(map);
-
-    // AJOUTEZ CETTE LIGNE - C'est la correction définitive
     map.on('dragstart', () => { 
         map.closePopup(); 
     });
@@ -55,13 +75,23 @@ function initMap() {
 
 async function loadData() {
     try {
-        const response = await fetch('./data/locations.json');
-        allParcoursData = await response.json();
+        // On interroge la collection "parcours" dans Firestore
+        const snapshot = await db.collection("parcours").get();
+        
+        // On vide notre tableau au cas où
+        allParcoursData = [];
+
+        // On remplit notre tableau avec les données de chaque document trouvé
+        snapshot.forEach((doc) => {
+            allParcoursData.push(doc.data());
+        });
+
+        console.log("Données chargées avec succès depuis Firestore !", allParcoursData);
+
     } catch (error) {
-        console.error("Impossible de charger les données des parcours :", error);
+        console.error("ERREUR : Impossible de charger les données depuis Firestore :", error);
     }
 }
-
 // --- AFFICHAGE ET LOGIQUE DES PARCOURS ---
 function displayParcoursList() {
     const listElement = document.getElementById('parcours-list');
